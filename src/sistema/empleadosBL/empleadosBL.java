@@ -11,7 +11,7 @@ package sistema.empleadosBL;
 public class empleadosBL {
     
     int ID;
-    String nombre, correo;
+    String nombre, correo, Apellido;
 
     public int getID() {
         return ID;
@@ -35,6 +35,14 @@ public class empleadosBL {
 
     public void setCorreo(String correo) {
         this.correo = correo;
+    }
+
+    public String getApellido() {
+        return Apellido;
+    }
+
+    public void setApellido(String Apellido) {
+        this.Apellido = Apellido;
     }
     
     

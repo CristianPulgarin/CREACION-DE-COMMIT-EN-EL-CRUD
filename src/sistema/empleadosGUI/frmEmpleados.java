@@ -26,7 +26,7 @@ TiempoPro time=new TiempoPro();
         
         MostrarTiempo();
         
-        String[] titulos= {"ID","Nombre","Correo"};
+         String[] titulos= {"ID","Nombre","Correo","Apellido"};
         modelo = new DefaultTableModel(null,titulos);
         tblEmpleados.setModel(modelo);
         
@@ -63,6 +63,8 @@ TiempoPro time=new TiempoPro();
         jLabel6 = new javax.swing.JLabel();
         labelHora = new javax.swing.JLabel();
         btnSalir = new javax.swing.JButton();
+        jLabel7 = new javax.swing.JLabel();
+        txtApellido = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -155,6 +157,9 @@ TiempoPro time=new TiempoPro();
             }
         });
 
+        jLabel7.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
+        jLabel7.setText("Apellido");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -168,7 +173,7 @@ TiempoPro time=new TiempoPro();
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(txtCorreo, javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(txtNombre, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jScrollPane1)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 464, Short.MAX_VALUE)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
@@ -184,20 +189,27 @@ TiempoPro time=new TiempoPro();
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(labelHora))
                             .addComponent(jLabel2)
-                            .addComponent(jLabel1)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(btnAgregar)
-                                .addGap(18, 18, 18)
-                                .addComponent(btnEditar)
-                                .addGap(33, 33, 33)
-                                .addComponent(btnBorrar)
-                                .addGap(18, 18, 18)
-                                .addComponent(btnCancelar)))
-                        .addGap(0, 7, Short.MAX_VALUE)))
+                            .addComponent(jLabel1))
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addComponent(txtApellido, javax.swing.GroupLayout.Alignment.TRAILING))
                 .addContainerGap())
             .addGroup(layout.createSequentialGroup()
-                .addGap(206, 206, 206)
-                .addComponent(btnSalir)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(196, 196, 196)
+                        .addComponent(btnSalir))
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(btnAgregar)
+                        .addGap(18, 18, 18)
+                        .addComponent(btnEditar)
+                        .addGap(28, 28, 28)
+                        .addComponent(btnBorrar)
+                        .addGap(18, 18, 18)
+                        .addComponent(btnCancelar))
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jLabel7)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -219,21 +231,25 @@ TiempoPro time=new TiempoPro();
                 .addComponent(jLabel2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(txtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jLabel7)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 7, Short.MAX_VALUE)
+                .addComponent(txtApellido, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel1)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(txtCorreo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(23, 23, 23)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnAgregar)
                     .addComponent(btnEditar)
                     .addComponent(btnBorrar)
                     .addComponent(btnCancelar))
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnSalir)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
         );
 
         pack();
@@ -245,8 +261,8 @@ TiempoPro time=new TiempoPro();
         
         empleadosBL oEmpleados= recuperarDatosGUI();
         
-        String strSentenciaInsert= String.format("INSERT INTO Empleados (ID, Nombre, Correo)"
-                + "VALUES (null, '%s','%s')", oEmpleados.getNombre(), oEmpleados.getCorreo());
+         String strSentenciaInsert= String.format("INSERT INTO Empleados (ID, Nombre, Correo,Apellido)"
+                + "VALUES (null, '%s','%s','%s')", oEmpleados.getNombre(), oEmpleados.getCorreo(), oEmpleados.getApellido());
         
         objConexion.ejecutarSentenciaSQL(strSentenciaInsert);
       
@@ -264,6 +280,7 @@ TiempoPro time=new TiempoPro();
             txtID.setText(receptor.getModel().getValueAt(receptor.getSelectedRow(), 0).toString());
             txtNombre.setText(receptor.getModel().getValueAt(receptor.getSelectedRow(), 1).toString());
             txtCorreo.setText(receptor.getModel().getValueAt(receptor.getSelectedRow(), 2).toString());
+            txtApellido.setText(receptor.getModel().getValueAt(receptor.getSelectedRow(), 3).toString());
         }
         btnAgregar.setEnabled(false);
         btnEditar.setEnabled(true);
@@ -288,8 +305,8 @@ TiempoPro time=new TiempoPro();
         
         empleadosBL oEmpleados= recuperarDatosGUI();
         
-        String strSentenciaEdit= String.format("UPDATE Empleados SET Nombre='%s',"
-                + "Correo='%s' WHERE ID = %d", oEmpleados.getNombre(), oEmpleados.getCorreo(), oEmpleados.getID());
+         String strSentenciaEdit= String.format("UPDATE Empleados SET Nombre='%s',"
+                + "Correo='%s', Apellido='%s'  WHERE ID = %d" ,oEmpleados.getNombre(), oEmpleados.getCorreo(),oEmpleados.getApellido(), oEmpleados.getID());
         
         objConexion.ejecutarSentenciaSQL(strSentenciaEdit);
         
@@ -326,8 +343,9 @@ TiempoPro time=new TiempoPro();
                 System.out.println(resultado.getString("ID"));
                 System.out.println(resultado.getString("Nombre"));
                 System.out.println(resultado.getString("Correo"));
+                System.out.println(resultado.getString("Apellido"));
                 
-                Object[] oUsuario={resultado.getString("ID"),resultado.getString("Nombre"),resultado.getString("Correo")};
+               Object[] oUsuario={resultado.getString("ID"),resultado.getString("Nombre"),resultado.getString("Correo"),resultado.getString("Apellido")};
                 
                 modelo.addRow(oUsuario);
             }
@@ -346,15 +364,17 @@ TiempoPro time=new TiempoPro();
         oEmpleados.setID(ID);
         oEmpleados.setNombre(txtNombre.getText());
         oEmpleados.setCorreo(txtCorreo.getText());
+        oEmpleados.setApellido(txtApellido.getText());
         
         return oEmpleados;
     }
     /*funcion limpiar*/
     public void limpiar(){
     
-    txtID.setText("");
+     txtID.setText("");
     txtNombre.setText("");
     txtCorreo.setText("");
+    txtApellido.setText("");
     
     btnAgregar.setEnabled(true);
     btnEditar.setEnabled(false);
@@ -407,10 +427,12 @@ TiempoPro time=new TiempoPro();
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel labelFecha;
     private javax.swing.JLabel labelHora;
     private javax.swing.JTable tblEmpleados;
+    private javax.swing.JTextField txtApellido;
     private javax.swing.JTextField txtCorreo;
     private javax.swing.JTextField txtID;
     private javax.swing.JTextField txtNombre;

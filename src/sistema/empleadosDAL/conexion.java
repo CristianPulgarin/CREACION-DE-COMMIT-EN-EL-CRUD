@@ -15,7 +15,7 @@ import java.sql.ResultSet;
  * @author Daniel
  */
 public class conexion {
-    String strConexionBD = "jdbc:sqlite:C:\\Users\\USUARIO\\Documents\\SEMESTRE 3- TECNICO PROFESIONAL EN SISTEMAS\\CONSTRUCCION DE SOFTWARE 2\\Base de datos\\sqliteadmin/sistemat.s3db";
+    String strConexionBD = "jdbc:sqlite:C:\\Users\\USUARIO\\Desktop\\sistema/sistemat.s3db";
     Connection conn = null;
     
 /**
